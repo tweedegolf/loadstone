@@ -10,6 +10,14 @@ macro_rules! KB {
     };
 }
 
+/// Helper macro for megabytes in any type (simply multiplies by 1024 * 1024).
+#[macro_export(local_inner_macros)]
+macro_rules! MB {
+    ($val:expr) => {
+        $val * 1024 * 1024
+    };
+}
+
 /// Firmware bank. Meant to store firmware images, but can also store other
 /// kinds of data if the application requires it.
 #[derive(Default, Debug, Clone, Serialize, Deserialize)]
@@ -110,6 +118,13 @@ pub fn internal_flash(port: &Port) -> FlashChip {
             end: 512 * KB!(4),
             region_size: KB!(4),
         },
+        Port::Nrf52840 => FlashChip {
+            name: "NRF52840 MCU Flash".to_owned(),
+            internal: true,
+            start: 0x0000_0000,
+            end: MB!(1),
+            region_size: KB!(4),
+        },
     }
 }
 
@@ -126,5 +141,6 @@ pub fn external_flash(port: &Port) -> impl Iterator<Item = FlashChip> {
         })
         .into_iter(),
         Port::Wgm160P => None.into_iter(),
+        Port::Nrf52840 => None.into_iter(), // TODO conservative, maybe this is possible
     }
 }

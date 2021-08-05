@@ -102,8 +102,6 @@ dependencies = [
 [[package]]
 name = "blue_hal"
 version = "1.0.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c933e92b6104a582f3ddb367aac39156ef29314b20160abb585d5730f9c77b66"
 dependencies = [
  "bytemuck",
  "cortex-m 0.7.2",
@@ -116,6 +114,7 @@ dependencies = [
  "marker-blanket",
  "nb 1.0.0",
  "nom",
+ "nrf52840-pac",
  "paste",
  "static_assertions",
  "stm32f4",
@@ -543,6 +542,17 @@ checksum = "e7413f999671bd4745a7b624bd370a569fb6bc574b23c83a3c5ed2e453f3d5e2"
 dependencies = [
  "memchr",
  "version_check",
+]
+
+[[package]]
+name = "nrf52840-pac"
+version = "0.9.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e1b780a5afd2621774652f28c82837f6aa6d19cf0ad71c734fc1fe53298a2d73"
+dependencies = [
+ "bare-metal",
+ "cortex-m 0.5.11",
+ "vcell",
 ]
 
 [[package]]

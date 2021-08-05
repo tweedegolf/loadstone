@@ -21,7 +21,7 @@ pub enum BootMetrics {
     Enabled {
         /// Support for boot timing information (time elapsed between starting
         /// Loadstone and boot).
-        timing: bool
+        timing: bool,
     },
     Disabled,
 }
@@ -31,7 +31,7 @@ pub enum BootMetrics {
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub enum Greetings {
     Default,
-    Custom { loadstone: Cow<'static, str>, demo: Cow<'static, str> }
+    Custom { loadstone: Cow<'static, str>, demo: Cow<'static, str> },
 }
 
 impl Default for Greetings {
@@ -48,6 +48,7 @@ impl BootMetrics {
         match port {
             Port::Stm32F412 => true,
             Port::Wgm160P => false,
+            Port::Nrf52840 => false, // TODO this is conservative. maybe this is possible?
         }
     }
 }
@@ -63,7 +64,7 @@ pub enum Serial {
         /// Hardware pin for serial transmission (from loadstone's perspective).
         tx_pin: PeripheralPin,
         /// Hardware pin for serial reception (from loadstone's perspective).
-        rx_pin: PeripheralPin
+        rx_pin: PeripheralPin,
     },
     Disabled,
 }
@@ -78,6 +79,7 @@ impl Serial {
         match port {
             Port::Stm32F412 => true,
             Port::Wgm160P => false,
+            Port::Nrf52840 => false, // TODO conservative, maybe this is possible?
         }
     }
 

@@ -52,6 +52,7 @@ impl Configuration {
         match self.port {
             Port::Stm32F412 => flags.push("stm32f412"),
             Port::Wgm160P => flags.push("wgm160p"),
+            Port::Nrf52840 => flags.push("nrf52840"),
         };
 
         if self.security_configuration.security_mode == SecurityMode::P256ECDSA {
@@ -85,7 +86,7 @@ impl Configuration {
         }
 
         if !features::BootMetrics::timing_supported(&self.port) {
-            if let BootMetrics::Enabled{timing} = &mut self.feature_configuration.boot_metrics {
+            if let BootMetrics::Enabled { timing } = &mut self.feature_configuration.boot_metrics {
                 *timing = false
             }
         }

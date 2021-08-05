@@ -27,6 +27,7 @@ stm32f4_any = ["blue_hal/stm32_any", "stm32_any"]
 stm32_any = ["cortex_m_any"]
 cortex_m_any = []
 wgm160p = ["blue_hal/wgm160p", "efm32gg11b_any"]
+nrf52840 = ["blue_hal/nrf52840", "cortex_m_any"]
 efm32gg11b_any = ["cortex_m_any"]
 defmt-default = []
 defmt-trace = []
@@ -78,6 +79,7 @@ features = ["ecdsa", "sha256", "pem"]
 optional = true
 
 [dependencies.blue_hal]
+path = "/home/folkertdev/tg/blue_hal"
 version = "1.0.0"
 
 [dependencies.ufmt]

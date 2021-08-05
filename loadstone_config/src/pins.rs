@@ -50,6 +50,7 @@ pub fn serial_tx(port: &Port) -> Box<dyn Iterator<Item = PeripheralPin>> {
             PeripheralPin::new(Cow::from("USART6"), Cow::from("g"), 14, 8),
         ])),
         Port::Wgm160P => Box::new(None.into_iter()),
+        Port::Nrf52840 => Box::new(None.into_iter()), // TODO maybe this is supported?
     }
 }
 
@@ -67,5 +68,6 @@ pub fn serial_rx(port: &Port) -> Box<dyn Iterator<Item = PeripheralPin>> {
             PeripheralPin::new(Cow::from("USART6"), Cow::from("g"), 9, 8),
         ])),
         Port::Wgm160P => Box::new(None.into_iter()),
+        Port::Nrf52840 => Box::new(None.into_iter()), // TODO maybe this is supported?
     }
 }

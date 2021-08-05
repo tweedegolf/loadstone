@@ -22,6 +22,7 @@ pub fn generate<P: AsRef<Path>>(
     match configuration.port.subfamily() {
         port::Subfamily::Stm32f4 => stm32::generate_stm32f4_pins(configuration, &mut file)?,
         port::Subfamily::Efm32Gg11 => generate_efm32gg(configuration, &mut file)?,
+        port::Subfamily::Nrf52 => generate_efm32gg(configuration, &mut file)?,
     };
     prettify_file(filename).ok();
     Ok(())
