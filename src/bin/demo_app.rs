@@ -24,5 +24,12 @@ fn main() -> ! {
     loop {}
 }
 
+#[cfg(all(target_arch = "arm", feature = "nrf52840"))]
+#[entry]
+fn main() -> ! {
+    use loadstone_lib as _;
+    loop {}
+}
+
 #[cfg(not(target_arch = "arm"))]
 fn main() {}
