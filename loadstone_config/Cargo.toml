@@ -14,7 +14,7 @@ syn = { version = "1.0.63", features = ["full", "fold"] }
 quote = "1.0.9"
 anyhow = "1.0.*"
 tightness = "1.0.*"
-enum-iterator = "0.6.*"
+enum-iterator = "0.6.0"
 itertools = "0.10.*"
 
 [dependencies.ecdsa]
