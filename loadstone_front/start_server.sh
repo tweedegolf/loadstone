@@ -8,5 +8,5 @@ cargo install basic-http-server
 
 echo "open http://localhost:8080"
 
-(cd published_app && basic-http-server --addr 127.0.0.1:8080 .)
+basic-http-server --addr 127.0.0.1:8080 $(dirname "$0")/published_app
 # (cd published_app && python3 -m http.server 8080 --bind 127.0.0.1)

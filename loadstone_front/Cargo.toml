@@ -29,7 +29,7 @@ reqwest-wasm = "*"
 futures = "*"
 loadstone_config = { path = "../loadstone_config/" }
 atomic_refcell = "*"
-enum-iterator = "*"
+enum-iterator = "0.6.0"
 getrandom = { version = "*", features = ["js"] }
 
 [dependencies.ecdsa]
